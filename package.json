@@ -1,0 +1,21 @@
+{
+  "name": "daily-diet-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.19.2"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.0.1",
+    "eslint": "^8.44.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6"
+  }
+}
