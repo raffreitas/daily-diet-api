@@ -1,14 +1,11 @@
-import fastify from 'fastify'
-import { usersRoutes } from './routes/users'
-
-const app = fastify()
-
-app.register(usersRoutes)
+import { env } from './env'
+import { app } from './app'
 
 app
   .listen({
-    port: 3333,
+    port: env.PORT,
   })
   .then(() => {
-    console.log('🚀 HTTP Server is running')
+    const [{ address, port }] = app.addresses()
+    console.log(`🚀 HTTP Server is running on http://${address}:${port}`)
   })
