@@ -139,7 +139,6 @@ export async function mealRoutes(app: FastifyInstance) {
 
   app.get('/metrics', async (request) => {
     const userId = request.cookies.userId
-    console.log('oio')
 
     const registeredMeals = await knex('meals')
       .where('user_id', userId)
