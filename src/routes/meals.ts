@@ -5,16 +5,6 @@ import { z } from 'zod'
 import { knex } from '../database'
 import { checkUserIdExists } from '../middlewares/check-user-id-exists'
 
-interface MealsOnAndOffDiet {
-  id: string
-  on_diet: boolean
-}
-
-interface Sequences {
-  bestSequence: number
-  sequence: number
-}
-
 export async function mealRoutes(app: FastifyInstance) {
   app.addHook('preHandler', checkUserIdExists)
 
@@ -167,7 +157,7 @@ export async function mealRoutes(app: FastifyInstance) {
       .orderBy('meal_time')
 
     const { bestSequence } = mealList.reduce(
-      (prev: Sequences, meal: MealsOnAndOffDiet) => {
+      (prev, meal) => {
         return {
           sequence: meal.on_diet ? ++prev.sequence : 0,
           bestSequence: Math.max(prev.sequence, prev.bestSequence),
